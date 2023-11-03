@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500|Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+   <link rel="stylesheet" href="{{ asset('assets/css/style_connexion.css') }}">
+   <title>Espace Connexion</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="banner">
+            <h1 class="banner-heading">Ma Connexion</h1>
+            <div class="arrow">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+            <button class="banner-btn">Clique Ici</button>
+        </div>
+
+        <div class="form-container">
+            <form method="post" class="sign-up-form">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                {# <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> #}
+                {# <label for="inputEmail">Email</label> #}
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-input" 
+                    autocomplete="email" required autofocus placeholder="Votre Email">
+                {# <label for="inputPassword">Password</label> #}
+                <input type="password" name="password" id="inputPassword" class="form-input" 
+                    autocomplete="current-password" required placeholder="Votre mot de passe">
+
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+                {# <button class="btn btn-lg btn-primary" type="submit"> #}
+                <button type="submit">
+                    Connexion
+                </button>
+            </form>
+            {# <form class="sign-up-form">
+                <input type="text" class="form-input" placeholder="FULL NAME">
+                <input type="email" class="form-input" placeholder="EMAIL ADDRESS">
+                <p>Get News?</p>
+                <label>No</label>
+                <input type="checkbox">
+                <label>Yes</label>
+                <button type="button">Sign Up Here</button>
+            </form> #}
+
+            <div class="header">
+                <h1>Bienvenue à toi Tatiana</h1>
+            </div>
+
+            <div class="x-btn">&#10005;</div>
+        </div>
+    </div>
+
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+</body>
+</html>
