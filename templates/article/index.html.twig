@@ -23,7 +23,7 @@
             {% for post in posts %}
                 <div class="col-md-6 ftco-animate">
                     <div class="blog-entry">
-                        <a href="{{ path('article', {'slug': post.slug}) }}">
+                        <a href="{{ path('article', {'id': post.id}) }}">
                             <img src="/uploads/{{ post.illustration }}" alt="{{ post.title }}" class="my-block">
                         </a>
                         <div class="text d-flex py-4">

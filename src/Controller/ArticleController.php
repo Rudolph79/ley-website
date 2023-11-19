@@ -16,25 +16,25 @@ class ArticleController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-    
+
     /**
      * @Route("/articles", name="app_articles")
      */
     public function index(): Response
     {
         $posts = $this->entityManager->getRepository(Post::class)->findAll();
-        
+
         return $this->render('article/index.html.twig', [
             'posts' => $posts
         ]);
     }
 
     /**
-     * @Route("/article/{slug}", name="article")
+     * @Route("/article/{id}", name="article")
      */
-    public function show($slug)
+    public function show($id)
     {
-        $post = $this->entityManager->getRepository(Post::class)->findOneBy($slug);
+        $post = $this->entityManager->getRepository(Post::class)->findOneById($id);
 
         if (!$post) {
             return $this->redirectToRoute('app_articles');

@@ -51,7 +51,7 @@
                     {# <li class="nav-item"><a href="project.html" class="nav-link">Project</a></li> #}
                     <li class="nav-item {% if (app.request.pathInfo == path('app_services')) %}active{% endif %}"><a href="{{ path('app_services') }}" class="nav-link">Services</a></li>
                     {# <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li> #}
-                    <li class="nav-item {% if (app.request.pathInfo == path('app_blog')) %}active{% endif %}"><a href="{{ path('app_blog') }}" class="nav-link">Blog</a></li>
+                    <li class="nav-item {% if (app.request.pathInfo == path('app_articles')) %}active{% endif %}"><a href="{{ path('app_articles') }}" class="nav-link">Blog</a></li>
                 <li class="nav-item {% if (app.request.pathInfo == path('app_contact')) %}active{% endif %}"><a href="{{ path('app_contact') }}" class="nav-link">Contact</a></li>
                 {% if app.user %}
                     <li class="nav-item"><a href="{{ path('app_logout') }}" class="nav-link">Déconnexion</a></li>
