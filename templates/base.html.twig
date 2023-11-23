@@ -39,7 +39,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
             <div class="container">
-            <a class="navbar-brand" href="{{ path('app_home') }}">LEYINDA Tatiana</a>
+            <a class="navbar-brand" href="{{ path('app_home') }}">Tatiana LEYINDA</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
@@ -51,6 +51,7 @@
                     {# <li class="nav-item"><a href="project.html" class="nav-link">Project</a></li> #}
                     <li class="nav-item {% if (app.request.pathInfo == path('app_services')) %}active{% endif %}"><a href="{{ path('app_services') }}" class="nav-link">Services</a></li>
                     {# <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li> #}
+                    <li class="nav-item {% if (app.request.pathInfo == path('app_offer')) %}active{% endif %}"><a href="{{ path('app_offer') }}" class="nav-link">Offres</a></li>
                     <li class="nav-item {% if (app.request.pathInfo == path('app_articles')) %}active{% endif %}"><a href="{{ path('app_articles') }}" class="nav-link">Blog</a></li>
                 <li class="nav-item {% if (app.request.pathInfo == path('app_contact')) %}active{% endif %}"><a href="{{ path('app_contact') }}" class="nav-link">Contact</a></li>
                 {% if app.user %}

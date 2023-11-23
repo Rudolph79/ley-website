@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Offer;
-use App\Entity\Post;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class OfferController extends AbstractController
 {
     private $entityManager;
 
@@ -17,19 +16,17 @@ class HomeController extends AbstractController
     {
         $this->entityManager = $entityManager;
     }
-
+    
     /**
-     * @Route("/", name="app_home")
+     * @Route("/offres", name="app_offer")
      */
     public function index(): Response
     {
         $offers = $this->entityManager->getRepository(Offer::class)->findAll();
-        $articles = $this->entityManager->getRepository(Post::class)->findTheLastThreeItems();
-        // dd($articles);
-
-        return $this->render('home/index.html.twig', [
-            'offers' => $offers,
-            'articles' => $articles
+        // dd($offers);
+        
+        return $this->render('offer/offer.html.twig', [
+            'offers' => $offers
         ]);
     }
 }
